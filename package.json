@@ -2,7 +2,7 @@
   "name": "elastic-autocompleter",
   "version": "0.0.0",
   "scripts": {
-    "prepElastic": "docker-compose up && npm run elasticMigrationAndSeeder",
+    "prepElastic": "docker-compose up -d && echo 'Waiting 45 sec...' && sleep 45 && node elasticsearch-index-setup",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
