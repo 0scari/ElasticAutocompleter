@@ -2,6 +2,7 @@
   "name": "elastic-autocompleter",
   "version": "0.0.0",
   "scripts": {
+    "prepElastic": "docker-compose up && npm run elasticMigrationAndSeeder",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -22,7 +23,11 @@
     "@angular/router": "^6.0.3",
     "core-js": "^2.5.4",
     "rxjs": "^6.0.0",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.8.26",
+    "elasticsearch": "^14.2.2",
+    "faker": "^4.1.0",
+    "get-json": "^1.0.0",
+    "request": "^2.85.0"
   },
   "devDependencies": {
     "@angular/compiler-cli": "^6.0.3",
