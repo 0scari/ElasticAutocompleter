@@ -1,27 +1,24 @@
-# ElasticAutocompleter
+## ElasticAutocompleter
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.7.
 
-## Development server
+### Set-up information
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+In order to set up the application follow these steps:
+   1. run `npm install` 
+   2. run `npm run prepElastic` 
+   3. run `ng serve`
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+The command `npm run prepElastic` has the following effect:
+ 1. spin up Docker containers with Kibana & Elasticsearch from a compose file
+ 2. sleep for 45 seconds while Elasticsearch is starting
+ 3. *elasticsearch-index-setup.js* script will create an index and call *elasticSeeder.js* to bulk load 10,000 documents
+    with addresses
+ 
+ ### Additional info
+ 
+ There have been situations where the Docker containers do not respond after setup.
+ 
+ _Just restart Docker and try again, additionally, you might want to increase the sleep-time in package.json_ 
+ 
+ It takes ~ 2 minutes for Kibana to start, don't panic!
